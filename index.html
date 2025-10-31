@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="km">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Google Search Demo</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg-img: linear-gradient(180deg, rgba(6,84,44,0.6), rgba(6,84,44,0.4)), url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&q=60');
+      --accent: #fff;
+      --glass: rgba(255,255,255,0.12);
+      --glass-strong: rgba(255,255,255,0.18);
+      --shadow: 0 6px 18px rgba(0,0,0,0.35);
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      font-family:"Roboto",sans-serif;
+      color:var(--accent);
+    }
+
+    .bg{
+      position:fixed;
+      inset:0;
+      background-image:var(--bg-img);
+      background-size:cover;
+      background-position:center;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-direction:column;
+    }
+
+    .bg::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg,rgba(0,0,0,0.2),rgba(0,0,0,0.5));
+    }
+
+    .hero{
+      position:relative;
+      z-index:1;
+      text-align:center;
+      max-width:960px;
+      padding:20px;
+    }
+
+    .logo{
+      font-size:70px;
+      font-weight:300;
+      margin-bottom:30px;
+    }
+
+    .search{
+      display:flex;
+      align-items:center;
+      background:var(--glass);
+      border-radius:40px;
+      backdrop-filter:blur(6px);
+      padding:12px 18px;
+      box-shadow:var(--shadow);
+      max-width:700px;
+      margin:0 auto;
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .search input{
+      flex:1;
+      border:none;
+      outline:none;
+      background:transparent;
+      color:var(--accent);
+      font-size:18px;
+      padding:6px 0;
+    }
+
+    .icon{
+      width:36px;
+      height:36px;
+      display:grid;
+      place-items:center;
+      cursor:pointer;
+      border-radius:50%;
+      transition:background 0.2s;
+    }
+
+    .icon:hover{
+      background:rgba(255,255,255,0.1);
+    }
+
+    .icon svg{
+      width:18px;
+      height:18px;
+      fill:rgba(255,255,255,0.9);
+    }
+
+    .shortcuts{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:40px;
+      margin-top:40px;
+    }
+
+    .shortcut{
+      text-decoration:none;
+      color:rgba(255,255,255,0.9);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      font-size:13px;
+      transition:opacity 0.2s;
+    }
+
+    .shortcut:hover{
+      opacity:0.8;
+    }
+
+    .shortcut .circle{
+      width:60px;
+      height:60px;
+      border-radius:50%;
+      background:rgba(255,255,255,0.1);
+      display:grid;
+      place-items:center;
+      box-shadow:0 6px 12px rgba(0,0,0,0.3);
+      margin-bottom:6px;
+    }
+
+    .shortcut svg{
+      width:26px;
+      height:26px;
+      fill:rgba(255,255,255,0.95);
+    }
+  </style>
+</head>
+<body>
+  <div class="bg">
+    <div class="hero">
+      <h1 class="logo">Google</h1>
+
+      <div class="search">
+        <div class="icon" id="searchBtn" title="Search">
+          <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5A6.5 6.5 0 1 0 9.5 16a6.471 6.471 0 0 0 4.23-1.57l.27.28h.79l5 4.99L20.49 19l-4.99-5zM10 15a5 5 0 1 1 0-10a5 5 0 0 1 0 10z"/></svg>
+        </div>
+        <input id="searchInput" type="text" placeholder="Search Google or type a URL" />
+        <div class="icon" id="micBtn" title="Voice Search">
+          <svg viewBox="0 0 24 24"><path d="M12 14a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v5a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 14 0h-2zM11 19h2v3h-2z"/></svg>
+        </div>
+      </div>
+
+      <div class="shortcuts">
+        <a href="https://meet.google.com" target="_blank" class="shortcut">
+          <div class="circle"><svg viewBox="0 0 24 24"><path d="M12 2L2 7v10l10 5 10-5V7l-10-5z"/></svg></div>
+          <span>Google Meet</span>
+        </a>
+        <a href="https://sheets.google.com" target="_blank" class="shortcut">
+          <div class="circle"><svg viewBox="0 0 24 24"><path d="M6 2v20h12V8l-6-6H6z"/></svg></div>
+          <span>Google Sheets</span>
+        </a>
+        <a href="https://www.google.com/maps" target="_blank" class="shortcut">
+          <div class="circle"><svg viewBox="0 0 24 24"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7z"/></svg></div>
+          <span>Google Maps</span>
+        </a>
+        <a href="https://www.google.com/drive" target="_blank" class="shortcut">
+          <div class="circle"><svg viewBox="0 0 24 24"><path d="M7.5 4L2 14l5.5 10h11L22 14l-5.5-10h-9z"/></svg></div>
+          <span>Google Drive</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const searchInput = document.getElementById("searchInput");
+    const searchBtn = document.getElementById("searchBtn");
+    const micBtn = document.getElementById("micBtn");
+
+    // Function to perform Google search
+    function performSearch() {
+      const query = searchInput.value.trim();
+      if (query) {
+        // if it looks like a URL
+        if (/^https?:\/\//.test(query)) {
+          window.location.href = query;
+        } else {
+          const searchUrl = "https://www.google.com/search?q=" + encodeURIComponent(query);
+          window.open(searchUrl, "_blank");
+        }
+      }
+    }
+
+    // Enter key listener
+    searchInput.addEventListener("keydown", e => {
+      if (e.key === "Enter") performSearch();
+    });
+
+    // Click icon to search
+    searchBtn.addEventListener("click", performSearch);
+
+    // Optional: voice search via Web Speech API
+    micBtn.addEventListener("click", () => {
+      if (!('webkitSpeechRecognition' in window)) {
+        alert("Voice recognition not supported in this browser");
+        return;
+      }
+      const recognition = new webkitSpeechRecognition();
+      recognition.lang = "en-US";
+      recognition.start();
+      recognition.onresult = function(event) {
+        const transcript = event.results[0][0].transcript;
+        searchInput.value = transcript;
+        performSearch();
+      };
+    });
+  </script>
+</body>
+</html>
