@@ -17,4 +17,7 @@ _#/|##########/\######(   /\   )######/\##########|\#_
                   (vvv(VVV)(VVV)vvv)
 """
 print(dragon)
+blue = "\033[94m"
+reset = "\033[0m"
+print(blue + dragon + reset)
 print("🐉 DRAGON CYBER.CESEY RUN OK ✅")
