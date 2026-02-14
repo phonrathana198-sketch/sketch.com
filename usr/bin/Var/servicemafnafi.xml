@@ -1,0 +1,5 @@
+<service
+    android:name=".MyForegroundService"
+    android:enabled="true"
+    android:exported="false"
+    android:foregroundServiceType="dataSync" />  <!-- ជ្រើស type សមស្រប -->
