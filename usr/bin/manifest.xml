@@ -1,0 +1,3 @@
+<uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+<!-- បើ Android 14+ បន្ថែម type ឧ. dataSync, mediaPlayback... -->
+<uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
